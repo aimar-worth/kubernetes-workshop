@@ -106,3 +106,15 @@ kubectl version --client
 ```
 
 # You are ready to start with the workshop
+
+After workshop you can stop the minikube to gain back the resources allocated to minikube
+
+```bash
+minikube stop
+```
+
+You can also pause the minikube. This will not destroy your running application and can be resumed quickly
+
+```bash
+minikube pause
+```
