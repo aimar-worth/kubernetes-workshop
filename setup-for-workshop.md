@@ -1,4 +1,4 @@
-# Kubernetes Workshop in Worth
+# Kubernetes workshop preparation
 
 ## Prerequisites
 
