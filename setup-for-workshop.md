@@ -7,9 +7,7 @@ To have a handson experience in this workshop you need to install couple of tool
   - minikube - Kubernetes single node cluster made for daily local development and testing
   - kubectl - The Kubernetes command-line too
 
-The most easiest way to install minikube
-
-## Minikube
+## Minikube installation
 
 ### Install on Mac 
 
