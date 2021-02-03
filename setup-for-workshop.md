@@ -106,3 +106,5 @@ Test to ensure the version on command promt
 ```cmd
 kubectl version --client
 ```
+
+# You are ready to start with the workshop
