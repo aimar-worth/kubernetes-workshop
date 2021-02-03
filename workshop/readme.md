@@ -1,6 +1,6 @@
 # Kubernetes workshop
 
-This workshop is going to show and explain the the most *idiomatic* way to deploy application to Kubernetes cluster by using manifest yaml files.
+This workshop is going to show and explain the the most *idiomatic* way to deploy stateful application to Kubernetes cluster by using manifest yaml files.
 
 We will deploy basic Single Page Application written in [ReactJS](https://reactjs.org/) and Rest API written with [Strapi](https://strapi.io/).
 
