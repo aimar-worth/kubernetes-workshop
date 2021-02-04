@@ -74,6 +74,12 @@ kubectl apply -f 2_service.yaml
 kubectl get services
 ```
 
+3. describe to see more info
+
+```bash
+kubectl describe service mysql
+```
+
 ## MySQL deployment
 
 1. Create mysql deployment
@@ -109,6 +115,65 @@ mysql-f88f9c77b-f6rtj   1/1     Running   0          8m46s
 
 ```bash
 kubectl logs mysql-f88f9c77b-f6rtj
+```
+
+## create database for strapi
+
+1. get mysql pod name
+
+```bash
+kubectl get pods
+```
+
+should see something like this
+
+```bash
+NAME                    READY   STATUS             RESTARTS   AGE
+mysql-f88f9c77b-rwpz8   1/1     Running            0          12m
+```
+
+2. "log in" to pod interactivly
+
+```bash
+kubedctl exec -it mysql-f88f9c77b-rwpz8 bash
+```
+
+you will see the normal bash command prompt
+
+3. Login to mysql service
+
+```bash
+mysql -u root -p
+```
+
+Enter the password we crated as a secret before the mysql deployment.
+You will see mysql client prompt
+
+4. create an database called strapi
+
+```bash
+CREATE DATABASE strapi;
+```
+
+5. check if database was created
+
+```bash
+SHOW DATABASES;
+```
+
+you should see following:
+
+```bash
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| strapi             |
++--------------------+
+4 rows in set (0.00 sec)
 ```
 
 # yay! we have running mysql database with presistent storage in our host (workstation)

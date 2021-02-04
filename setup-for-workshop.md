@@ -47,7 +47,15 @@ choco install minikube
 
 [Download Minikube Windows Installer](https://storage.googleapis.com/minikube/releases/latest/minikube-installer.exe)
 
-## Start your minikube
+## Configure and start your minikube
+
+1. Run minikube on hyperkit (we need this to use ingress service)
+
+```bash
+minikube config set vm-driver hyperkit
+```
+
+2. Start the engine! 
 
 ```bash
 minikube start
@@ -57,12 +65,21 @@ you will see something like this
 
 ```bash
 😄  minikube v1.17.1 on Darwin 11.0.1
-✨  Automatically selected the docker driver. Other choices: hyperkit, virtualbox, ssh
+✨  Using the hyperkit driver based on user configuration
+💾  Downloading driver docker-machine-driver-hyperkit:
+    > docker-machine-driver-hyper...: 65 B / 65 B [----------] 100.00% ? p/s 0s
+    > docker-machine-driver-hyper...: 11.44 MiB / 11.44 MiB  100.00% 6.39 MiB p
+🔑  The 'hyperkit' driver requires elevated permissions. The following commands will be executed:
+
+    $ sudo chown root:wheel /Users/aareleid/.minikube/bin/docker-machine-driver-hyperkit
+    $ sudo chmod u+s /Users/aareleid/.minikube/bin/docker-machine-driver-hyperkit
+
+
+💿  Downloading VM boot image ...
+    > minikube-v1.17.0.iso.sha256: 65 B / 65 B [-------------] 100.00% ? p/s 0s
+    > minikube-v1.17.0.iso: 212.69 MiB / 212.69 MiB [] 100.00% 6.98 MiB p/s 30s
 👍  Starting control plane node minikube in cluster minikube
-🚜  Pulling base image ...
-💾  Downloading Kubernetes v1.20.2 preload ...
-    > preloaded-images-k8s-v8-v1....: 491.22 MiB / 491.22 MiB  100.00% 23.98 Mi
-🔥  Creating docker container (CPUs=2, Memory=1989MB) ...
+🔥  Creating hyperkit VM (CPUs=2, Memory=4000MB, Disk=20000MB) ...
 🐳  Preparing Kubernetes v1.20.2 on Docker 20.10.2 ...
     ▪ Generating certificates and keys ...
     ▪ Booting up control plane ...
