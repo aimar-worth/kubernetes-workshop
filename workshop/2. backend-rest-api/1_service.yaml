@@ -1,13 +1,13 @@
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: strapi
 spec:
   selector:
     app: strapi
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: NodePort
+    - name: http
+      protocol: 'TCP'
+      port: 80
+      targetPort: 80

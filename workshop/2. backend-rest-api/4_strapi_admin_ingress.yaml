@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: strapi-admin-ingress
+spec:
+  rules:
+    - host: kubernetesrocks.nl
+      http:
+        paths:
+          - path: /(admin|plugins|email|settings-manager|documentation|content-type-builder|upload|users-permissions|users|content-manager|auth)/?.*$
+            pathType: Prefix
+            backend:
+              service:
+                name: strapi
+                port:
+                  number: 80
