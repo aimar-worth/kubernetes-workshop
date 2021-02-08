@@ -74,7 +74,7 @@ add the line in the end of the file
 
 Save the file!
 
-## Deploy the strapi
+## Deploy Strapi
 
 1. deploy the service
 
