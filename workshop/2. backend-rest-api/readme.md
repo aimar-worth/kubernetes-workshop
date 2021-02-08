@@ -120,6 +120,29 @@ you can also check the strapi logs and ensure that everything is running
 kubectl logs strapi-9695574c-7bpsv
 ```
 
+5. Create ingress for Strapi routes
+
+```bash
+kubectl apply -f 3_api_ingress.yaml
+```
+
+Confim its created
+
+```bash
+kubectl describe ingress strapi-ingress
+```
+
+6. Create ingress for Strapi admin dashboard
+
+```bash
+kubectl apply -f 4_strapi_admin_ingress.yaml
+```
+
+Confirm its created
+
+```bash
+kubectl describe ingress strapi-admin-ingress
+```
 # hurray 🥳🥳🥳🥳 we have now strapi working and accessible from public
 
 Strapi admin url > http://kubernetesrocks.nl/admin
@@ -128,3 +151,46 @@ Strapi home routes > http://kubernetesrocks.nl/api/home
 
 
 ## Troubleshooting tips
+
+
+1. If ingress is not working then you can check the ingress logs
+
+```bash
+kubectl get pods -A
+```
+
+You should see something like this
+
+```bash
+kube-system   ingress-nginx-controller-558664778f-lh755   1/1     Running     7          4d19h
+```
+
+This is how you get the name of the pod
+
+Access the logs 
+
+```bash
+kubectl logs ingress-nginx-controller-558664778f-lh755 -n kube-system
+```
+
+You can follow the log trail by adding -f in the end of the command
+
+2. If your strapi pod is not able to start...
+
+you can describe the pod and see the previous events
+
+get the pod name:
+
+```bash
+kubectl get pods
+```
+
+```bash
+strapi-675c749cd6-5h6q8   1/1     Running   5          4d
+```
+
+describe the pod
+
+```bash
+kubectl describe pod strapi-675c749cd6-5h6q8
+```

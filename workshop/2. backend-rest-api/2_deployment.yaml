@@ -39,39 +39,4 @@ spec:
             cpu: "1"
           limits:
             memory: "1Gi"
-            cpu: "2"
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 10
-          periodSeconds: 10
-          successThreshold: 1
-          timeoutSeconds: 10
-        readinessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /
-            port: 80
-            scheme: HTTP
-          periodSeconds: 10
-          successThreshold: 1
-          timeoutSeconds: 10
-
-
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: strapi
-# spec:
-#   replicas: 3
-#   selector:
-#     matchLabels:
-#       app: hello-app
-#     spec:
-#       containers:
-#         - name: strapi
-#           image: aimaraa/workshop-rest-api:latest
-#           imagePullPolicy: Always
+            cpu: "1"

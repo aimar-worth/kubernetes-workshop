@@ -58,7 +58,7 @@ minikube config set vm-driver hyperkit
 2. Start the engine! 
 
 ```bash
-minikube start
+minikube start --cpus 2 --memory 8192
 ```
 
 you will see something like this
