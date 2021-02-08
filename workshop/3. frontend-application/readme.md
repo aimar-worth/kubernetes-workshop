@@ -58,3 +58,5 @@ frontend-ingress       <none>   kubernetesrocks.nl   192.168.64.2   80      15s
 ```
 
 Its time to test website via browser
+
+http://kubernetesrocks.nl
