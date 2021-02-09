@@ -33,11 +33,3 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mysql-initdb-config
-data:
-  initdb.sql: |
-    CREATE DATABASE strapi
