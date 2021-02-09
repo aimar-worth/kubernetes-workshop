@@ -119,6 +119,8 @@ kubectl logs mysql-f88f9c77b-f6rtj
 
 ## create database for strapi
 
+By the way - this step could be automated with ConfigMap but to learn how to log in to running POD and do changes in there we will do this step manually.
+
 1. get mysql pod name
 
 ```bash
