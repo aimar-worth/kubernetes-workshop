@@ -103,7 +103,7 @@ Open a PowerShell console as Administrator.
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
-2. Run minikube on hyperkit (we need this to use ingress service)
+2. Run minikube on hyper-v (we need this to use ingress service)
 
 ```bash
 minikube config set driver hyperv
