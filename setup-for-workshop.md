@@ -49,6 +49,8 @@ choco install minikube
 
 ## Configure and start your minikube
 
+## on Mac
+
 1. Run minikube on hyperkit (we need this to use ingress service)
 
 ```bash
@@ -91,6 +93,27 @@ you will see something like this
 
 This means that minikube is running
 
+### On Windows
+
+1. Enable Hyper-V.
+
+Open a PowerShell console as Administrator.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+2. Run minikube on hyperkit (we need this to use ingress service)
+
+```bash
+minikube config set driver hyperv
+```
+
+3. Start the engine! 
+
+```bash
+minikube start --driver=hyperv
+```
 ## kubectl installation
 
 ### Install on Mac
