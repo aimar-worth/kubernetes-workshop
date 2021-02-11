@@ -29,6 +29,22 @@ kube-system   ingress-nginx-controller-558664778f-lh755   1/1     Running     0 
 
 Since we use minikube in our workstations, we need to fake the domain name services by modifying our host file
 
+### Get Ingress IP address
+
+```bash
+kubectl get ingress
+```
+
+You should see this:
+
+```bash
+NAME                   CLASS    HOSTS                ADDRESS        PORTS   AGE
+strapi-admin-ingress   <none>   kubernetesrocks.nl   192.168.64.2   80      5d21h
+strapi-ingress         <none>   kubernetesrocks.nl   192.168.64.2   80      7d17h
+```
+
+Address you see is the ingress IP address
+
 ### On Mac
 
 ```bash
@@ -38,7 +54,7 @@ sudo nano /etc/hosts
 add following line in the end of the file 
 
 ```bash
-127.0.0.1   kubernetesrocks.nl 
+192.168.64.2   kubernetesrocks.nl 
 ```
 
 control + X for save and exit
@@ -47,12 +63,14 @@ Try to ping kubernetesrocks.nl and you see that the ip is actually your localhos
 
 ```bash
 ➜ ✗ ping kubernetesrocks.nl             
-PING kubernetesrocks.nl (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.049 ms
-64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.121 ms
+PING kubernetesrocks.nl (192.168.64.2): 56 data bytes
+64 bytes from 192.168.64.2: icmp_seq=0 ttl=64 time=0.049 ms
+64 bytes from 192.168.64.2: icmp_seq=1 ttl=64 time=0.121 ms
 ```
 
 ### On Windows 10
+
+On windows the IP address might be different. Just run the command to get all ingresses and get the IP address from there.
 
 Run notepad as Administrator
 
@@ -69,7 +87,7 @@ Now you’ll be able to edit and save changes to your HOSTS file.
 add the line in the end of the file
 
 ```powershell
-127.0.0.1   kubernetesrocks.nl 
+x.x.x.x  kubernetesrocks.nl 
 ```
 
 Save the file!
